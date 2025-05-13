@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>واجهة التحقق</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+        }
+        .speech-bubble {
+            width: 400px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .text {
+            font-size: 24px;
+            color: #000;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Traditional Arabic', serif;
+        }
+        .code-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .code-input input {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            text-align: center;
+            border: 2px solid #8B4513;
+            border-radius: 5px;
+            outline: none;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #2F4F4F;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 200px;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #3C5F5F;
+        }
+    </style>
+</head>
+<body>
+    <img src="data:image/jpeg;base64,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" alt="فقاعة الكلام" class="speech-bubble">
+    <div class="text">ادخل الكود</div>
+    <div class="code-input">
+        <input type="text" maxlength="1" pattern="\d" required>
+        <input type="text" maxlength="1" pattern="\d" required>
+        <input type="text" maxlength="1" pattern="\d" required>
+        <input type="text" maxlength="1" pattern="\d" required>
+        <input type="text" maxlength="1" pattern="\d" required>
+        <input type="text" maxlength="1" pattern="\d" required>
+    </div>
+    <button class="button">ارسل</button>
+</body>
+</html>
